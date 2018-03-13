@@ -1,0 +1,141 @@
+# BLANK_LINES_OPTIONS
+
+obj-$(CONFIG_BLANK_LINES_AFTER_DECLARATIONS) += "--blank-lines-after-declarations"
+obj-$(CONFIG_BLANK_LINES_AFTER_PROCEDURES) += "--blank-lines-after-procedures"
+obj-$(CONFIG_BLANK_LINES_BEFORE_BLOCK_COMMENTS) += "--blank-lines-before-block-comments"
+obj-$(CONFIG_NO_BLANK_LINES_AFTER_DECLARATIONS) += "--no-blank-lines-after-declarations"
+obj-$(CONFIG_NO_BLANK_LINES_AFTER_PROCEDURES) += "--no-blank-lines-after-procedures"
+obj-$(CONFIG_LEAVE_OPTIONAL_BLANK_LINES) += "--leave-optional-blank-lines"
+obj-$(CONFIG_SWALLOW_OPTIONAL_BLANK_LINES) += "--swallow-optional-blank-lines"
+
+# BREAKING_LONG_LINES_OPTIONS
+
+obj-$(CONFIG_BREAK_BEFORE_BOOLEAN_OPERATOR) += "--break-before-boolean-operator"
+obj-$(CONFIG_HONOUR_NEWLINES) += "--honour-newlines"
+
+obj-$(CONFIG_LINE_LENGTH) += "--line-length$(CONFIG_LINE_LENGTHN)"
+
+obj-$(CONFIG_BREAK_AFTER_BOOLEAN_OPERATOR) += "--break-after-boolean-operator"
+obj-$(CONFIG_IGNORE_NEWLINES) += "--ignore-newlines"
+
+# DECLARATIONS_OPTIONS
+
+obj-$(CONFIG_BLANK_LINES_AFTER_COMMAS) += "--blank-lines-after-commas"
+obj-$(CONFIG_BRACES_AFTER_FUNC_DEF_LINE) += "--braces-after-func-def-line"
+obj-$(CONFIG_BRACES_AFTER_STRUCT_DECL_LINE) += "--braces-after-struct-decl-line"
+obj-$(CONFIG_BRACES_ON_FUNC_DEF_LINE) += "--braces-on-func-def-line"
+obj-$(CONFIG_BRACES_ON_STRUCT_DECL_LINE) += "--braces-on-struct-decl-line"
+obj-$(CONFIG_BREAK_FUNCTION_DECL_ARGS) += "--break-function-decl-args"
+obj-$(CONFIG_BREAK_FUNCTION_DECL_ARGS_END) += "--break-function-decl-args-end"
+obj-$(CONFIG_LEFT_JUSTIFY_DECLARATIONS) += "--left-justify-declarations"
+
+obj-$(CONFIG_DECLARATION_INDENTATION) += "--declaration-indentation$(CONFIG_DECLARATION_INDENTATIONN)"
+
+obj-$(CONFIG_NO_BLANK_LINES_AFTER_COMMAS) += "--no-blank-lines-after-commas"
+obj-$(CONFIG_DONT_BREAK_FUNCTION_DECL_ARGS) += "--dont-break-function-decl-args"
+obj-$(CONFIG_DONT_LEFT_JUSTIFY_DECLARATIONS) += "--dont-left-justify-declarations"
+obj-$(CONFIG_DONT_BREAK_PROCEDURE_TYPE) += "--dont-break-procedure-type"
+obj-$(CONFIG_PROCNAMES_START_LINES) += "--procnames-start-lines"
+obj-$(CONFIG_T) += "-T"
+
+# STATEMENTS_OPTIONS
+
+obj-$(CONFIG_BRACES_AFTER_IF_LINE) += "--braces-after-if-line"
+
+obj-$(CONFIG_BRACE_INDENT) += "--brace-indent$(CONFIG_BRACE_INDENTN)"
+
+obj-$(CONFIG_BRACES_ON_IF_LINE) += "--braces-on-if-line"
+obj-$(CONFIG_BLANK_BEFORE_SIZEOF) += "--blank-before-sizeof"
+
+obj-$(CONFIG_CASE_BRACE_INDENTATION) += "--case-brace-indentation$(CONFIG_CASE_BRACE_INDENTATIONN)"
+
+obj-$(CONFIG_CONTINUATION_INDENTATION) += "--continuation-indentation$(CONFIG_CONTINUATION_INDENTATIONN)"
+
+obj-$(CONFIG_CASE_INDENTATION) += "--case-indentation$(CONFIG_CASE_INDENTATIONN)"
+
+obj-$(CONFIG_SPACE_AFTER_CAST) += "--space-after-cast"
+obj-$(CONFIG_DONT_CUDDLE_DO_WHILE) += "--dont-cuddle-do-while"
+obj-$(CONFIG_DONT_CUDDLE_ELSE) += "--dont-cuddle-else"
+obj-$(CONFIG_NO_SPACE_AFTER_CASTS) += "--no-space-after-casts"
+obj-$(CONFIG_DONT_LINE_UP_PARENTHESES) += "--dont-line-up-parentheses"
+obj-$(CONFIG_NO_SPACE_AFTER_FUNCTION_CALL_NAMES) += "--no-space-after-function-call-names"
+obj-$(CONFIG_NO_SPACE_AFTER_PARENTHESES) += "--no-space-after-parentheses"
+obj-$(CONFIG_NO_SPACE_AFTER_FOR) += "--no-space-after-for"
+obj-$(CONFIG_NO_SPACE_AFTER_IF) += "--no-space-after-if"
+obj-$(CONFIG_NO_SPACE_AFTER_WHILE) += "--no-space-after-while"
+obj-$(CONFIG_DONT_SPACE_SPECIAL_SEMICOLON) += "--dont-space-special-semicolon"
+obj-$(CONFIG_SPACE_AFTER_PROCEDURE_CALLS) += "--space-after-procedure-calls"
+
+obj-$(CONFIG_PAREN_INDENTATION) += "--paren-indentation$(CONFIG_PAREN_INDENTATIONN)"
+
+obj-$(CONFIG_SPACE_AFTER_PARENTHESES) += "--space-after-parentheses"
+obj-$(CONFIG_SPACE_AFTER_FOR) += "--space-after-for"
+obj-$(CONFIG_SPACE_AFTER_IF) += "--space-after-if"
+obj-$(CONFIG_SPACE_AFTER_WHILE) += "--space-after-while"
+
+obj-$(CONFIG_STRUCT_BRACE_INDENTATION) += "--struct-brace-indentation$(CONFIG_STRUCT_BRACE_INDENTATIONN)"
+
+obj-$(CONFIG_SPACE_SPECIAL_SEMICOLON) += "--space-special-semicolon"
+
+# INDENTATION_OPTIONS
+
+obj-$(CONFIG_USE_TABS) += "--use-tabs"
+
+obj-$(CONFIG_INDENT_LEVEL) += "--indent-level$(CONFIG_INDENT_LEVELN)"
+
+obj-$(CONFIG_INDENT_LABEL) += "--indent-label$(CONFIG_INDENT_LABELN)"
+
+obj-$(CONFIG_PARAMETER_INDENTATION) += "--parameter-indentation$(CONFIG_PARAMETER_INDENTATIONN)"
+
+obj-$(CONFIG_CONTINUE_AT_PARENTHESES) += "--continue-at-parentheses"
+obj-$(CONFIG_LEAVE_PREPROCESSOR_SPACE) += "--leave-preprocessor-space"
+obj-$(CONFIG_NO_PARAMETER_INDENTATION) += "--no-parameter-indentation"
+obj-$(CONFIG_NO_TABS) += "--no-tabs"
+
+obj-$(CONFIG_PREPROCESSOR_INDENTATION) += "--preprocessor-indentation$(CONFIG_PREPROCESSOR_INDENTATIONN)"
+
+obj-$(CONFIG_TAB_SIZE) += "--tab-size$(CONFIG_TAB_SIZEN)"
+
+# COMMENTS_OPTIONS
+
+obj-$(CONFIG_COMMENT_INDENTATION) += "--comment-indentation$(CONFIG_COMMENT_INDENTATIONN)"
+
+obj-$(CONFIG_DECLARATION_COMMENT_COLUMN) += "--declaration-comment-column$(CONFIG_DECLARATION_COMMENT_COLUMNN)"
+
+obj-$(CONFIG_COMMENT_DELIMITERS_ON_BLANK_LINES) += "--comment-delimiters-on-blank-lines"
+obj-$(CONFIG_CUDDLE_DO_WHILE) += "--cuddle-do-while"
+obj-$(CONFIG_CUDDLE_ELSE) += "--cuddle-else"
+
+obj-$(CONFIG_ELSE_ENDIF_COLUMN) += "--else-endif-column$(CONFIG_ELSE_ENDIF_COLUMNN)"
+
+obj-$(CONFIG_LINE_COMMENTS_INDENTATION) += "--line-comments-indentation$(CONFIG_LINE_COMMENTS_INDENTATIONN)"
+
+obj-$(CONFIG_FORMAT_FIRST_COLUMN_COMMENTS) += "--format-first-column-comments"
+obj-$(CONFIG_FORMAT_ALL_COMMENTS) += "--format-all-comments"
+
+obj-$(CONFIG_COMMENT_LINE_LENGTH) += "--comment-line-length$(CONFIG_COMMENT_LINE_LENGTHN)"
+
+obj-$(CONFIG_NO_COMMENT_DELIMITERS_ON_BLANK_LINES) += "--no-comment-delimiters-on-blank-lines"
+obj-$(CONFIG_DONT_FORMAT_FIRST_COLUMN_COMMENTS) += "--dont-format-first-column-comments"
+obj-$(CONFIG_DONT_FORMAT_COMMENTS) += "--dont-format-comments"
+obj-$(CONFIG_DONT_STAR_COMMENTS) += "--dont-star-comments"
+obj-$(CONFIG_START_LEFT_SIDE_OF_COMMENTS) += "--start-left-side-of-comments"
+
+# COMMON_STYLES_OPTIONS
+
+obj-$(CONFIG_GNU_STYLE) += "--gnu-style"
+obj-$(CONFIG_K_AND_R_STYLE) += "--k-and-r-style"
+obj-$(CONFIG_ORIGINAL) += "--original"
+obj-$(CONFIG_LINUX_STYLE) += "--linux-style"
+
+# INVOKING_INDENT_OPTIONS
+
+obj-$(CONFIG_IGNORE_PROFILE) += "--ignore-profile"
+obj-$(CONFIG_STANDARD_OUTPUT) += "--standard-output"
+
+# MISCELLANEOUS_OPTIONS
+
+obj-$(CONFIG_VERBOSE) += "--verbose"
+obj-$(CONFIG_NO_VERBOSITY) += "--no-verbosity"
+obj-$(CONFIG_VERSION) += "--version"
+obj-$(CONFIG_PRESERVE_MTIME) += "--preserve-mtime"
