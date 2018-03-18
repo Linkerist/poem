@@ -1,0 +1,24 @@
+handle .poem.pro ?__
+  |                 |
+  | Y               |
+ \|/                |
+handle profile      |
+  |               N |
+  |                 |
+ \|/__________ /____|
+|process args1|\
+|_____________|
+       |
+       |
+      \|/
+  set options ? ______
+       |              |
+      \|/             |
+  bool args           |
+      or            N |
+  non bool args       |
+       |              |
+       |              |
+     _\|/_ /          |
+    | End |------------
+    ^^^^^^^\

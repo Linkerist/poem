@@ -1,0 +1,385 @@
+
+                   ____________                                      
+                  | __________ |                                                
+             O    ||          || /___ user interface                  
+  user___\  \|/   || computer || \                                        
+         /   |    ||__________||                                       
+            / \   / /_/_/_/_/  /                                   
+                 / /_/_/_/_/  /                                      
+                /___________ /                                             
+                     |                                                                           
+             _______/|_ start configure                                            
+            /          \                                                      
+           /            \                                                           
+        __/______________\                                                             
+       |user configuration|                                                                          
+       |__________________|                                                                    
+      /      .poem.pro      \                                                                         
+     /          ^            \                                                                               
+    /           |make profile \                                                                                                    
+   /            |              \                                                                                                    
+  /          .config            \                                                                                                            
+ /          /     \              \                                                                                                           
+ |         /       \             |                                                                   
+ |        |      ncurses menu    |                                                                                                           
+ |        |           ^          |                                                                                                          
+ | line oriented      |          |                                                                                                            
+ |     ^              |          |                                                                                                    
+ |     |              |          |                                                                                                          
+ | make config  make menuconfig  |                                                                                     
+ |_______________________________|                                                                                  
+                |                                                                                                    
+                | after configure, we got .poem.pro                                                                               
+                |  we can invoke poem here                                                                        
+      __________|____________________________________________________	                                                             
+     |   run ./poem [options] [input-files]                          |                                                             
+     |   or  ./poem [options] [single-input-file] [-o output-file]   |                                                                   
+     |   or  ./poem --version                                        |                                                                 
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                                                           
+              |                                                                                                                                
+              | start with main function                                                                                                       
+              |                                                                                                                                
+              |                                                                                                                                
+          main ____                                                                                                                                   
+              |    |                                                                                                                                  
+              |    |                                                                                                                                  
+              | __main ______                                                                                                                         
+              |    |  |      |                                                                                                                        
+              |    |  |initialization                                                                                                  
+              |    |  |      |_______  #ifdef DEBUG ?                                                                          
+              |    |  |      |       |                                                                                  
+              |    |  |      |    possible debugger                                                                      
+              |    |  |      |_______|                                                                               
+              |    |  |      |                                                                                          
+              |    |  |initialize backups ________                                                                               
+              |    |  |      |            ^       |                                                  
+              |    |  |      |            | get environment variable                                 
+              |    |  |      |            |       |__________ if v was set                           
+              |    |  |      |            |       |          |                                       
+              |    |  |      |            |       |     set simple mode                              
+              |    |  |      |            |       | /________|                                       
+              |    |  |      |            |       | \                                                
+              |    |  |      |            |      \|/                                                 
+              |    |  |      |            | get version control value __________                     
+              |    |  |      |            |        |                  ^         |                    
+              |    |  |      |            |        |______ if unknown |   get environment variable   
+              |    |  |      |            |        |      |           |         |______ if v was null
+              |    |  |      |            |        |  number mode     |         |      |             
+              |    |  |      |            |        |______|           |         |    default mode    
+              |    |  |      |            |        |                  |         |______|             
+              |    |  |      |            |_get suffix width  _____   |         |                    
+              |    |  |      |                               ^     |  |_______scan modes             
+              |    |  |      |                               |get environment variable               
+              |    |  |      |                               |     |_______                          
+              |    |  |      |                               |     |       |                         
+              |    |  |      |                               |     |   set width                     
+              |    |  |      |                               |     |_______|                         
+              |    |  |      |                               |     |                                 
+              |    |  |      |                               |__check limit                     
+              |    |  |      |   in case of the .poem.pro's absence                             
+              |    |  |      |                                                                  
+              |    |  |set default options ________                                             
+              |    |  |      |             ^       |                                            
+              |    |  |      |             |iteration of profile instance ______ if got object  
+              |    |  |      |             |_______|                      ^     |               
+              |    |  |      |                                            |set object to default
+              |    |  |      |                                            |_____|
+              |    |  |handle profile _____                                                   
+              |    |  |      |        ^    |                                                                                  
+              |    |  |      |        |check args ____ if ignore profile                                                                             
+              |    |  |      |        |    |      ^   |                                                                       
+              |    |  |      |        |    |      |stop check                                                                          
+              |    |  |      |        |    |      |___|                                                                       
+              |    |  |      |        |    |                                                                                  
+              |    |  |      |        |set profile _____                                                                
+              |    |  |      |        |____|       ^    |                                                               
+              |    |  |      |                     |get environment variable                                            
+              |    |  |      |                     |    |____ if envname exists                                         
+              |    |  |      |                     |    |    |                                                          
+              |    |  |      |                     |else|  scan profile                                                          
+              |    |  |      |                     |    |____|                                                                    
+              |    |  |      |                     |    |____ if current dir exists                                                   
+              |    |  |      |                     |    |    |                                                                     
+              |    |  |      |                     |else|  scan profile                                                                       
+              |    |  |      |                     |    |____|                                                                       
+              |    |  |      |                     |    |____ if home dir exists                                                       
+              |    |  |      |                     |    |    |                                                                    
+              |    |  |      |                     |else|  scan profile                                                           
+              |    |  |      |                     |    |____|                                                                    
+              |    |  |      |                     |____|                                                                         
+              |    |  |      |                                                                                                                        
+              |    |  | process args _____                                                                           
+              |    |  |      |       |    |                                                                                                     
+              |    |  |      |       |iteration of args _____ if argv was filename                             
+              |    |  |      |       |____|             |    |____ if last option was -o                                                              
+              |    |  |      |                          |    |    |____ if out name exists                                                    
+              |    |  |      |                          |    |    |    |                                                                    
+              |    |  |      |                          |    |    | report error                                                            
+              |    |  |      |                          |    |    |____|                                                                    
+              |    |  |      |                          |    |else|____ if input file larger than one                                       
+              |    |  |      |                          |    |    |    |                                                                    
+              |    |  |      |                          |    |    | report error                                                            
+              |    |  |      |                          |    |    |____|                                                                    
+              |    |  |      |                          |    |    |____ if stdin                                                            
+              |    |  |      |                          |    |    |    |                                                                    
+              |    |  |      |                          |else|    | report error                                                            
+              |    |  |      |                          |    |    |____|                                                                    
+              |    |  |      |                          |    |    |____ if input file larger than one                                                 
+              |    |  |      |                          |    |    |    |____ if out name exists                                              
+              |    |  |      |                          |    |    |    |    |                                                               
+              |    |  |      |                          |    |    |    | report error                                                       
+              |    |  |      |                          |    |    |    |____|                                                               
+              |    |  |      |                          |    |    |    |____ if stdout                                                      
+              |    |  |      |                          |    |    |    |    |                                                               
+              |    |  |      |                          |    |    |    | report error                                                       
+              |    |  |      |                          |    |    |    |____|                                                               
+              |    |  |      |                          |    |    |    |                                                                    
+              |    |  |      |                          |    |____|_check filename buffer                                                   
+              |    |  |      |                          |    |                                                                                        
+              |    |  |      |                          | check option ___ if not a option                                                  
+              |    |  |      |                          |    |         |  |                                                                 
+              |    |  |      |                          |    |         |report error                                                        
+              |    |  |      |                          |    |         |__|                                                                 
+              |    |  |      |                          |_set option _____                                                          
+              |    |  |      |                                       |    |                                                         
+              |    |  |      |                                       |get prefix length ____                                        
+              |    |  |      |                                       |    |            |   |                                       
+              |    |  |      |                                       |    |            |iteration of prefixes                      
+              |    |  |      |                                       |    |            |___|                                       
+              |    |  |      |                                       |    |_____ if length larger than one                           
+              |    |  |      |                                       |    |    |___ if length is one as "-"                        
+              |    |  |      |                                       |    |    |   |                                               
+              |    |  |      |                                       |    |else|scan short table                                   
+              |    |  |      |                                       |    |    |___|                                               
+              |    |  |      |                                       |    |    |                                                     
+              |    |  |      |                                       |    |scan long table                                        
+              |    |  |      |                                       |    |____|                                                    
+              |    |  |      |                                       |    |___ if not found                                                   
+              |    |  |      |                                       |    |   |                                                               
+              |    |  |      |                                       |else|exit elegantly                                                     
+              |    |  |      |                                       |    |___|                                                               
+              |    |  |      |                                       |    |                                                                           
+              |    |  |      |                                       |possible verbose                                                         
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |possible explicit __ if not explicit                                        
+              |    |  |      |                                       |    |             | |                                                    
+              |    |  |      |                                       |    |             |return                                                      
+              |    |  |      |                                       |    |             |_|                                                     
+              |    |  |      |                                       |type branch                                                              
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ print string                                                    
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ function handler                                                
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ settings                                                        
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ just ignore                                                     
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ key                                                             
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ boolean value                                                   
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ integer parameter                                               
+              |    |  |      |                                       |    |                                                                    
+              |    |  |      |                                       |    |\__ default, you die, haha                                          
+              |    |  |      |                                       |____|                                                                    
+              |    |  |      |____ if status was not sccess                                                                                           
+              |    |  |      |  |                                                                                                                     
+              |    |  |      |return status                                                                                                           
+              |    |  |      |__|                                                                                                                     
+              |    |  |      |                                                                                                                        
+              |    |  | possible verbose                                                                                                              
+              |    |  |      |                                                                                                                        
+              |    |  | compose ____                                                                                                                  
+              |    |  |      | |    |___ if number larger than one                                                                                    
+              |    |  |      | |    |   |                                                                                                             
+              |    |  |      | |else|compose multi ___                                                                                                
+              |    |  |      | |    |___|          |  |                                                                                               
+              |    |  |      | |    |              |iteration of files _________________________                                        
+              |    |  |      | |compose single ____|__|                                         |                                       
+              |    |  |      | |    |         |    |                                            |                                        
+              |    |  |      | |    |         |    |___ if stdin                                |                                        
+              |    |  |      | |    |         |    |   |                                        |                                        
+              |    |  |      | |    |         |else| open stdin ___                             |                                                     
+              |    |  |      | |    |         |    |___|        |  |                            |                                                     
+              |    |  |      | |    |         |    |            |malloc file buffer             |                                                     
+              |    |  |      | |    |         |    |            |  |                            |                                                     
+              |    |  |      | |    |         |    |            | ...                           |                                                     
+              |    |  |      | |    |         |    |            |__|                            |                                                     
+              |    |  |      | |    |         |    |                                            |                                                     
+              |    |  |      | |    |         |    |                                            |                                                     
+              |    |  |      | |    |         |    |                                            |                                                     
+              |    |  |      | |    |         |    |/___________________________________________|                                                     
+              |    |  |      | |    |         |    |\                                                                                                 
+              |    |  |      | |    |         |    |                                                                                                  
+              |    |  |      | |    |         |load file _______                                                                    
+              |    |  |      | |    |         |    |     |      |                                                                                     
+              |    |  |      | |    |         |    |     | open file                                                                                  
+              |    |  |      | |    |         |    |     |      |                                                                                     
+              |    |  |      | |    |         |    |     | check file stat                                                                            
+              |    |  |      | |    |         |    |     |      |                                                                                     
+              |    |  |      | |    |         |    |     | check file size                                                                            
+              |    |  |      | |    |         |    |     |      |                                                                                     
+              |    |  |      | |    |         |    |     | load file                                                                                  
+              |    |  |      | |    |         |    |     |      |                                                                                     
+              |    |  |      | |    |         |    |     | blank file in buffer                                                                       
+              |    |  |      | |    |         |    |     |      |                                                                                     
+              |    |  |      | |    |         |    |     |_stitch filename                                                                            
+              |    |  |      | |    |         | possible backup ______                                                                            
+              |    |  |      | |    |         |    |            |     |___ if we decide not to backup                                             
+              |    |  |      | |    |         |    |            |     |   |                                                                        
+              |    |  |      | |    |         |    |            |     | fortunately return                                                            
+              |    |  |      | |    |         |    |            |     |___|                                                                       
+              |    |  |      | |    |         |    |            |     |                                                                           
+              |    |  |      | |    |         |    |            |   got filename here _______                                                     
+              |    |  |      | |    |         |    |            |     |               |      |__ if no strategy                                  
+              |    |  |      | |    |         |    |            |   check it          |      |  |                                                
+              |    |  |      | |    |         |    |            |     |               |      |set name to null                                   
+              |    |  |      | |    |         |    |            |   open it           |      |__|                                                
+              |    |  |      | |    |         |    |            |     |               |      |__ if simple strategy                                   
+              |    |  |      | |    |         |    |            |   write it          |      |  |                                                 
+              |    |  |      | |    |         |    |            |     |               |      |concatenate basename with suffix                    
+              |    |  |      | |    |         |    |            |   possible          |      |__|                                                 
+              |    |  |      | |    |         |    |            |__mtime preserve     |      |                                                    
+              |    |  |      | |    |         |    |                                  |  get maximum version (omitted)                          
+              |    |  |      | |    |         |    |                                  |      |_ if increase strategy, and no number for this moment
+              |    |  |      | |    |         |    |                                  |      | |                                                 
+              |    |  |      | |    |         |    |                                  |  else|just as simple strategy                            
+              |    |  |      | |    |         |    |                                  |      |_|                                                 
+              |    |  |      | |    |         |    |                                  |      |                                                        
+              |    |  |      | |    |         |    |                                  |__increase the version                                         
+              |    |  |      | |    |         | open output file ______                                                                               
+              |    |  |      | |    |         |    |             |     |__ if no filename                                                             
+              |    |  |      | |    |         |    |             |     |  |                                                                           
+              |    |  |      | |    |         |    |             | else|set stdout                                                                    
+              |    |  |      | |    |         |    |             |     |__|                                                                           
+              |    |  |      | |    |         |    |             |     |                                                                              
+              |    |  |      | |    |         |    |             | open it                                                                            
+              |    |  |      | |    |         |    |             |_____|                                                                              
+              |    |  |      | |    |         |  poem ______                                                                                          
+              |    |  |      | |    |         |    |  |     |                                                                                         
+              |    |  |      | |    |         |    |  |  check settings                                                                               
+              |    |  |      | |    |         |    |  |     |                                                                                         
+              |    |  |      | |    |         |    |  |  fill_buffer _____                                                                            
+              |    |  |      | |    |         |    |  |     |        |    |__ if get EOS                                                              
+              |    |  |      | |    |         |    |  |     |        |    |  |                                                                        
+              |    |  |      | |    |         |    |  |     |        |else|set EOF                                                                    
+              |    |  |      | |    |         |    |  |     |        |    |__|                                                                        
+              |    |  |      | |    |         |    |  |     |        |    |                                                                           
+              |    |  |      | |    |         |    |  |     |        |do while finish a line                                                          
+              |    |  |      | |    |         |    |  |     |        |    |                                                                           
+              |    |  |      | |    |         |    |  |     |        |set buf pointer                                                                 
+              |    |  |      | |    |         |    |  |     |        |____|                                                                           
+              |    |  |      | |    |         |    |  |_ __poem ___                                                                                   
+              |    |  |      | |    |         |    |            |  |                                                                                  
+              |    |  |      | |    |         |    |            | lexical ____                                                                        
+              |    |  |      | |    |         |    |            |  |      |   |                                                                       
+              |    |  |      | |    |         |    |            |  |      | check buf                                                                 
+              |    |  |      | |    |         |    |            |  |      |   |                                                                       
+              |    |  |      | |    |         |    |            |  |      |   |____ if scan alphanumeric token                                        
+              |    |  |      | |    |         |    |            |  |      |   |    |                                                                  
+              |    |  |      | |    |         |    |            |  |      |   |    |____ if character or number                                       
+              |    |  |      | |    |         |    |            |  |      |   |    |    |                                                             
+              |    |  |      | |    |         |    |            |  |      |   |    |    |___ if hexadecimal                                           
+              |    |  |      | |    |         |    |            |  |      |   |    |    |   |                                                         
+              |    |  |      | |    |         |    |            |  |      |   |    |else| handler                                                     
+              |    |  |      | |    |         |    |            |  |      |   |    |    |___|                                                         
+              |    |  |      | |    |         |    |            |  |      |   |    |    |                                                             
+              |    |  |      | |    |         |    |            |  |      |   |    | float handler                                                    
+              |    |  |      | |    |         |    |            |  |      |   |    |____|                                                             
+              |    |  |      | |    |         |    |            |  |      |   |    |                                                                  
+              |    |  |      | |    |         |    |            |  |      |   |    |                                                                  
+              |    |  |      | |    |         |    |            |  |      |   |  check reserved word                                                  
+              |    |  |      | |    |         |    |            |  |      |   |    |                                                                  
+              |    |  |      | |    |         |    |            |  |      |   |    |___ if reserved                                                   
+              |    |  |      | |    |         |    |            |  |      |   |    |   |                                                              
+              |    |  |      | |    |         |    |            |  |      |   |    | reserved handler ____                                            
+              |    |  |      | |    |         |    |            |  |      |   |    |___|              |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |____|                  |reserved branch                                
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ switch                                 
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ case                                   
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ enum                                   
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ struct, union                          
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ decl                                   
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ paren                                  
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ sizeof                                 
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |                                           
+              |    |  |      | |    |         |    |            |  |      |   |                       |   |\__ default                                
+              |    |  |      | |    |         |    |            |  |      |   |                       |___|                                           
+              |    |  |      | |    |         |    |            |  |      |non alphanumeric token ____                                             
+              |    |  |      | |    |         |    |            |  |      |___|                   |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |branch                                          
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   |\__ end of string                           
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   |\__ end of line                             
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   |\__ wide character                          
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   |\__ single quota                            
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   |\__ double quota                            
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   |\__ left paren                              
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   |\__ left blanket                            
+              |    |  |      | |    |         |    |            |  |                              |   |                                            
+              |    |  |      | |    |         |    |            |  |                              |   ...                                          
+              |    |  |      | |    |         |    |            |  |                              |___|                                            
+              |    |  |      | |    |         |    |            |check end of file (fill file finally)                                                
+              |    |  |      | |    |         |    |            |  |                                                                                  
+              |    |  |      | |    |         |    |            |handle token branch                                                                  
+              |    |  |      | |    |         |    |            |  |                                                                                  
+              |    |  |      | |    |         |    |            |  |\__ form feed                                                                     
+              |    |  |      | |    |         |    |            |  |                                                                                  
+              |    |  |      | |    |         |    |            |  |\__ newline                                                                       
+              |    |  |      | |    |         |    |            |  |                                                                                  
+              |    |  |      | |    |         |    |            |  ....                                                                               
+              |    |  |      | |    |         |    |            |__|                                                                                  
+              |    |  |      | |    |         |    |                                                                                                  
+              |    |  |      | |    |         |    |                                                                                                  
+              |    |  |      | |    |         |    |                                                                                                  
+              |    |  |      | |    |         |    |____ if __function__ is single                                                                    
+              |    |  |      | |    |         |    |    |                                                                                             
+              |    |  |      | |    |         |    |    |___ if input number is not zero, and did not use stdin                                       
+              |    |  |      | |    |         |    |    |   |                                                                                         
+              |    |  |      | |    |         |    |else|   |                                                                                         
+              |    |  |      | |    |         |    |    |___|                                                                                         
+              |    |  |      | |    |         |    |    |                                                                                             
+              |    |  |      | |    |         |    |    |___ if preserve mtime
+              |    |  |      | |    |         |    |    |   |                                                                                           
+              |    |  |      | |    |         |    |    | close file __                                                                                
+              |    |  |      | |    |         |    |    |   |        | |                                                                               
+              |    |  |      | |    |         |    |    |   |        | |____ if no stdout                                                              
+              |    |  |      | |    |         |    |    |   |        | |    |                                                                          
+              |    |  |      | |    |         |    |    |   |        | |  close it                                                                     
+              |    |  |      | |    |         |    |    |   |        | |____|                                                                          
+              |    |  |      | |    |         |    |    |   |        |_|                                                                               
+              |    |  |      | |    |         |    |    |   |________|                                                                                  
+              |    |  |      | |    |         |    |    |___|                                                                                           
+              |    |  |      | |    |         |    |____|                                                                                               
+              |    |  |      | |    |         |____|                                                                                                    
+              |    |  |      | |    |         |                                                                                                         
+              |    |  |      | |    |_________|                                                                                                         
+              |    |  |      | |    |                                                                                                                   
+              |    |  |      | |____|                                                                                                                    
+              |    |  |      | |                                                                                                                        
+              |    |  |      |_|                                                                                                                        
+              |    |  |      |                                                                                                                          
+              |    |  |______|                                                                                                                          
+              |    |  |                                                                                                                                 
+              |    |__|                                                                                                                                 
+              |    |                                                                                                                                     
+              |____|                                                                                                                                    
+              |                                                                                                                                         
+           ___|___                                                                                                                                    
+          /       \                                                                                                                                   
+          |  END  |                                                                                                                                   
+          \_______/                                                                                                                                   

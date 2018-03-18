@@ -1,0 +1,16 @@
+     ___________________
+     |user configuration|
+     |__________________|
+    /      .poem.pro     \
+   /          ^           \
+  /	      |            \
+ /          .config         \
+/	   /     \           \
+|         /       \          |
+|         |      ncurses menu|
+|         |           ^      |
+|line oriented        |      |
+|    ^                |      |
+|    |                |      |
+|make config  make menuconfig|
+|____________________________|
