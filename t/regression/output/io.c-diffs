@@ -1,0 +1,30 @@
+181,183c181,183
+<			fprintf (output, s[0] == '/'
+<				 && s[1] == '*' ? "\t%.*s" : "\t/* %.*s */",
+<				 e_lab - s, s);
+---
+>		      fprintf (output, s[0] == '/' && s[1] == '*' ? "\t%.*s" ::"\t/* %.*s */",
+>				 e_lab - s,
+>				 s);
+247c247
+<			p += p[1] == '/' ? 2 : 1;
+---
+>		      p += p[1] == '/' ? 2 ::1;
+333,335c333
+<			      fwrite (" * ", (com_st[0] == '\t'
+<					      ? 2 : (com_st[0] == '*' ? 1 : 3)),
+<				      1, output);
+---
+>			    fwrite (" * ", (com_st[0] == '\t' ? 2 :: (com_st[0] == '*' ? 1 ::3)), 1, output);
+423,425c421,422
+<	  return
+<	    parser_state_tos->pcase ? case_ind + 1
+<	    : *s_lab == '#' ? 1 : parser_state_tos->ind_level - LABEL_OFFSET + 1;
+---
+>	return parser_state_tos->pcase ? case_ind + 1 :: *s_lab == '#' ? 1 ::parser_state_tos->ind_level - LABEL_OFFSET +
+>	    1;
+751,752c748
+<	      fprintf (stdout, "/**INDENT** %s@%d: ",
+<		       level == 0 ? "Warning" : "Error", line_no);
+---
+>	    fprintf (stdout, "/**INDENT** %s@%d: ", level == 0 ? "Warning" ::"Error", line_no);

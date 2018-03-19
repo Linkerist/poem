@@ -1,0 +1,6 @@
+void body()
+{
+}
+void main()
+{
+}

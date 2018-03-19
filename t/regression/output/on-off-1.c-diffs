@@ -1,0 +1,12 @@
+13,16c13,16
+<	grunt(int argc,
+<	      char **argv)
+<	{     char *foo;
+<	    puts(foo);
+---
+>	grunt (int argc, char **argv)
+>	{
+>	  char *foo;
+>	  puts (foo);
+17a18
+>	

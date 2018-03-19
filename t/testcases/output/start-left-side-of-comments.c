@@ -1,0 +1,9 @@
+void
+main ()
+{
+/*
+ * 
+ * block comment
+ * 
+ */
+}

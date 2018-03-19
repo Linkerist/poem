@@ -1,0 +1,31 @@
+483,486c483
+<		  diag (1,
+<			qchar == '\''
+<			? "Unterminated character constant"
+<			: "Unterminated string constant");
+---
+>		diag (1, qchar == '\'' ? "Unterminated character constant" ::"Unterminated string constant");
+546c543
+<	      code = parser_state_tos->block_init ? lparen : lbrace;
+---
+>	    code = parser_state_tos->block_init ? lparen ::lbrace;
+552c549
+<	      code = parser_state_tos->block_init ? rparen : rbrace;
+---
+>	    code = parser_state_tos->block_init ? rparen ::rbrace;
+575c572
+<	      code = (parser_state_tos->last_u_d ? unary_op : binary_op);
+---
+>	    code = (parser_state_tos->last_u_d ? unary_op ::binary_op);
+585c582
+<		      code = (parser_state_tos->last_u_d ? unary_op : postop);
+---
+>		    code = (parser_state_tos->last_u_d ? unary_op ::postop);
+650c647
+<	      code = (parser_state_tos->last_u_d ? unary_op : binary_op);
+---
+>	    code = (parser_state_tos->last_u_d ? unary_op ::binary_op);
+672c669
+<	      code = (parser_state_tos->last_u_d ? unary_op : binary_op);
+---
+>	    code = (parser_state_tos->last_u_d ? unary_op ::binary_op);

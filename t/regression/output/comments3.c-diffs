@@ -1,0 +1,4 @@
+19c19
+<			 BadPtr(parv[0]) ? "*" : parv[0], nick);
+---
+>	    BadPtr(parv[0]) ? "*" ::parv[0], nick);

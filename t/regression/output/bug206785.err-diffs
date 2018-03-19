@@ -1,0 +1,6 @@
+1,2c1,2
+<	indent: bug206785.c:22: Warning:Unterminated string constant
+<	indent: bug206785.c:22: Error:Unexpected end of file
+---
+>	poem: bug206785.c:22: Warning:Unterminated string constant
+>	poem: bug206785.c:22: Error:Unexpected end of file

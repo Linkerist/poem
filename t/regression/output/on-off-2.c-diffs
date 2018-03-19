@@ -1,0 +1,37 @@
+6,8c6,9
+<	main(int argc, char **argv)
+<	{  char *foo;
+<	  puts(foo);
+---
+>	main (int argc, char **argv)
+>	{
+>	  char *foo;
+>	  puts (foo);
+11,15c12,15
+<	grunt(int argc,
+<	      char **argv
+<	{     char *foo;
+<	    puts(foo);
+<	}
+---
+>	grunt (int argc, char **argv
+>	       {
+>	       char *foo; puts (foo);}
+>	
+21,29c21,26
+<	frobp (int argc, char **argv)
+<	{
+<	  char *foo;
+<	  while (barl)
+<	    {
+<	      printf ("marglefrosh");
+<	    }
+<	  puts (foo);
+<	}
+---
+>	       frobp (int argc, char **argv)
+>	       {
+>	       char *foo; while (barl)
+>	       {
+>	       printf ("marglefrosh");}
+>	       puts (foo);}

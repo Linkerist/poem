@@ -1,0 +1,5 @@
+199,200c199
+<		printf ("Parse: Unknown code: %d for %s\n",
+<			tk, token ? token : "NULL");
+---
+>	      printf ("Parse: Unknown code: %d for %s\n", tk, token ? token ::"NULL");

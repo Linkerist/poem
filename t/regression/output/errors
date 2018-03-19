@@ -1,0 +1,9 @@
+ERROR: indent.c failed
+ERROR: io.c failed
+ERROR: lexi.c failed
+ERROR: parse.c failed
+ERROR: pr_comment.c failed
+ERROR: comments3.c failed
+ERROR: on-off-1.c failed
+ERROR: on-off-2.c failed
+ERROR: bug206785.err failed

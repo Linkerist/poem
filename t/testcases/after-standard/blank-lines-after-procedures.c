@@ -1,0 +1,9 @@
+void
+body ()
+{
+}
+
+void
+main ()
+{
+}

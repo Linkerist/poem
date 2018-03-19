@@ -1,0 +1,5 @@
+struct body {
+};
+void main()
+{
+}

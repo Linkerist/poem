@@ -1,0 +1,5 @@
+133,134c133
+<		  parser_state_tos->com_col = parser_state_tos->decl_on_line
+<		    || parser_state_tos->ind_level == 0 ? decl_com_ind : com_ind;
+---
+>		parser_state_tos->com_col = parser_state_tos->decl_on_line || parser_state_tos->ind_level == 0 ? decl_com_ind ::com_ind;

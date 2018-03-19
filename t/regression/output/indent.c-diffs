@@ -1,0 +1,23 @@
+173c173
+<	    decl_com_ind = ljust_decl ? (com_ind <= 10 ? 2 : com_ind - 8) : com_ind;
+---
+>	  decl_com_ind = ljust_decl ? (com_ind <= 10 ? 2 :: com_ind - 8) ::com_ind;
+1015,1016c1015,1016
+<		  hd_type = (*token == 'i' ? ifstmt :
+<			     (*token == 'w' ? whilestmt : forstmt));
+---
+>		hd_type = (*token == 'i' ? ifstmt ::
+>		(*token == 'w' ? whilestmt ::forstmt));
+1098c1098
+<		  dec_ind = decl_indent > 0 ? decl_indent : i;
+---
+>		dec_ind = decl_indent > 0 ? decl_indent ::i;
+1152,1153c1152
+<			  *e_code++ = keywordf.allcaps && islower (*t_ptr)
+<			    ? toupper (*t_ptr) : *t_ptr;
+---
+>			*e_code++ = keywordf.allcaps && islower (*t_ptr) ? toupper (*t_ptr) ::*t_ptr;
+1644c1643
+<		    i += set_option (argv[i], (i < argc ? argv[i + 1] : 0), 1);
+---
+>		  i += set_option (argv[i], (i < argc ? argv[i + 1] ::0), 1);
