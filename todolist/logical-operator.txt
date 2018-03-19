@@ -1,0 +1,21 @@
+========================================
+
+return (((uint64_t)ntohl(*((uint32_t *)(index + 0)))) << 32) | ntohl(*((uint32_t *)(index + 4)));
+
+-----------------------------
+
+return (
+		(
+			(uint64_t)ntohl(*((uint32_t *)(index + 0)))
+		) << 32
+	)
+	| ntohl(
+		*((uint32_t *)(index + 4))
+	);
+
+should I do this? or just this:
+
+return (((uint64_t)ntohl(*((uint32_t *)(index + 0)))) << 32)
+	| ntohl(*((uint32_t *)(index + 4)));
+
+==============================================

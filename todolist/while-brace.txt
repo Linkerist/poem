@@ -1,0 +1,87 @@
+==========================================================
+
+	while (menu != NULL && (menu_is_hidden(menu->dname)
+				|| menu_is_separator(menu->dname)
+				|| menu_is_tearoff(menu->dname)
+				|| menu->children == NULL))
+
+-------------------------------------
+
+	while (
+		menu != NULL
+		&& (
+			menu_is_hidden(menu->dname)
+			|| menu_is_separator(menu->dname)
+			|| menu_is_tearoff(menu->dname)
+			|| menu->children == NULL
+		)
+	)
+
+brace format should merge to one unitive style, all of them, while, switch, if, etc.
+
+=======================================================
+
+	while (
+		curix < buf->b_ml.ml_usedchunks - 1
+		&& (
+			(lnum != 0 && lnum >= curline + buf->b_ml.ml_chunksize[curix].mlcs_numlines) || ( offset != 0
+				&& offset > size + buf->b_ml.ml_chunksize[curix].mlcs_totalsize + ffdos * buf->b_ml.ml_chunksize[curix].mlcs_numlines))) {
+
+----------------------------------------
+
+	while (
+		curix < buf->b_ml.ml_usedchunks - 1
+		&& (
+			(lnum != 0 && lnum >= curline + buf->b_ml.ml_chunksize[curix].mlcs_numlines)
+			|| (
+				offset != 0
+				&& offset > size + buf->b_ml.ml_chunksize[curix].mlcs_totalsize + ffdos * buf->b_ml.ml_chunksize[curix].mlcs_numlines
+			)
+		)
+	) {
+
+if the line is too long for the arithmetic sentence, break the line in operator
+
+==========================================================
+
+		while (node != NULL && (node->wn_byte < word[i]
+					|| (node->wn_byte == NUL
+					    && (flags < 0
+						? node->wn_affixID < (unsigned)affixID
+						: (node->wn_flags < (unsigned)(flags & WN_MASK)
+						   || (node->wn_flags == (flags & WN_MASK)
+						       && (spin->si_sugtree
+							   ? (node->wn_region & 0xffff) < region
+							   : node->wn_affixID
+							   < (unsigned)affixID))))))) {
+
+-------------------------------------------------
+
+		while (
+			node != NULL
+			&& (
+				node->wn_byte < word[i]
+				|| (
+					node->wn_byte == NUL
+					&& (
+						flags < 0
+						? node->wn_affixID < (unsigned)affixID
+						: (
+							node->wn_flags < (unsigned)(flags & WN_MASK)
+							|| (
+								node->wn_flags == (flags & WN_MASK)
+								&& (
+									spin->si_sugtree
+									? (node->wn_region & 0xffff) < region
+									: node->wn_affixID < (unsigned)affixID
+								)
+							)
+						)
+					)
+				)
+			)
+		) {
+
+it is a too large brace, cut them off
+
+==========================================================

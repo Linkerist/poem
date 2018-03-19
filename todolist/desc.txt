@@ -1,0 +1,3 @@
+too much work to do for lide and ccs, I shall implement them one by one, modular design.
+
+ccs is the work of art, it should compare to c-frontend.

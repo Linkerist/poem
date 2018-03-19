@@ -1,0 +1,75 @@
+======================================================================
+
+		r = alloc((unsigned)(STRLEN(txt)
+				     + STRLEN(vimvars[VV_FOLDDASHES].vv_str)	/* for %s */
+				     +20	/* for %3ld */
+				     + STRLEN(s)));	/* concatenated */
+
+------------------------------------------
+
+		r = alloc(
+				/* for %s */
+				(unsigned) (
+					/* for %3ld */
+					STRLEN(txt) + STRLEN(vimvars[VV_FOLDDASHES].vv_str) + 20 + STRLEN(s)
+				)
+		);	/* concatenated */
+
+=======================================================================
+
+		return (c == Ctrl_X || c == Ctrl_Y || c == Ctrl_E
+			|| c == Ctrl_L || c == Ctrl_F || c == Ctrl_RSB
+			|| c == Ctrl_I || c == Ctrl_D || c == Ctrl_P
+			|| c == Ctrl_N || c == Ctrl_T || c == Ctrl_V
+			|| c == Ctrl_Q || c == Ctrl_U || c == Ctrl_O || c == Ctrl_S || c == 's');
+
+--------------------------------------------
+
+		return (
+			c == Ctrl_X || c == Ctrl_Y || c == Ctrl_E
+			|| c == Ctrl_L || c == Ctrl_F || c == Ctrl_RSB
+			|| c == Ctrl_I || c == Ctrl_D || c == Ctrl_P
+			|| c == Ctrl_N || c == Ctrl_T || c == Ctrl_V
+			|| c == Ctrl_Q || c == Ctrl_U || c == Ctrl_O || c == Ctrl_S || c == 's'
+		);
+
+is there a rule for the sentence?
+
+=====================================================================
+
+	return (int)((((rgb >> 16) & 0xff) * 299)
+		     + (((rgb >> 8) & 0xff) * 587)
+		     + ((rgb & 0xff) * 114)) / 1000;
+
+----------------------------------------------
+
+	return (int)(
+			   (((rgb >> 16) & 0xff) * 299)
+			   + (((rgb >> 8) & 0xff) * 587)
+			   + ((rgb & 0xff) * 114)
+	) / 1000;
+
+calculation sentence, for the arithmetic way
+
+====================================================================
+
+match_len = last_slash = i = longest_path_match(name, len, removal.path, removal.len, &previous_slash);
+
+------------------------------------
+
+match_len = last_slash = i =
+	longest_path_match(name, len, removal.path, removal.len, &previous_slash);
+
+should I do this?
+
+===============================================================
+
+	return
+#ifdef FEAT_QUICKFIX
+	    !bt_dontwrite(curbuf) &&
+#endif
+	    (curbuf->b_changed || file_ff_differs(curbuf));
+
+it is hard to handle this, keep the way
+
+==============================================

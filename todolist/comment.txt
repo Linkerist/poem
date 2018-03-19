@@ -1,0 +1,64 @@
+=============================================================================
+
+	/* When "fgetline" is "get_loop_line()" use the "cookie" to find the
+	 * function that's originally used to obtain the lines.  This may be
+	 * nested several levels. */
+
+-------------------------------------------
+
+	/*
+	 * When "fgetline" is "get_loop_line()" use the "cookie" to find the
+	 * function that's originally used to obtain the lines.  This may be
+	 * nested several levels.
+	 */
+
+should not break the comment skeleton, while the grace way should be publish.
+
+when lide select this block, ccs will format it, once there is some key pressed.
+
+============================================================================
+
+	if (i < 0) {		/* no match in table */
+
+--------------------------------------------
+
+	/* no match in table */
+	if (i < 0) {
+
+place comment before sentence
+
+=======================================================================
+
+static int compl_used_match;	/* Selected one of the matches.  When
+				   FALSE the match was edited or using
+				   the longest common string. */
+
+-------------------------------------------------
+
+/*
+ * Selected one of the matches.
+ * When FALSE the match was edited or using the longest common string.
+ */
+static int compl_used_match;
+
+=======================================================================
+
+	/* We know the directory is in the hash table now because either
+				   construct_vpath_list or the code just above put it there.
+				   Does the file we seek exist in it?  */
+
+---------------------------------
+
+	/*
+	 * We know the directory is in the hash table now because either
+	 * construct_vpath_list or the code just above put it there.
+	 * Does the file we seek exist in it?
+	 */
+
+I should not do comment work too much, because some people may write some comment which require that keep the body effect,
+
+if I break the comment skeleton, the stype will be a mass,
+
+The comment work should be done when the later stage, on selection block options.
+
+========================================================

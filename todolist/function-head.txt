@@ -1,0 +1,29 @@
+===================================================
+
+/*ARGSUSED*/ static void f_cursor(argvars, rettv)
+
+-----------------------------------
+
+/*ARGSUSED*/
+static void f_cursor(argvars, rettv)
+
+================================================
+
+static struct delta_base_cache_entry *get_delta_base_cache_entry(struct packed_git *p, off_t base_offset)
+{
+	unsigned long hash = pack_entry_hash(p, base_offset);
+	return delta_base_cache + hash;
+}
+
+----------------------------
+
+static struct delta_base_cache_entry *
+get_delta_base_cache_entry(struct packed_git *p, off_t base_offset)
+{
+	unsigned long hash = pack_entry_hash(p, base_offset);
+	return delta_base_cache + hash;
+}
+
+function declaration head is too long for this line
+
+========================================

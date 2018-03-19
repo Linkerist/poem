@@ -1,0 +1,18 @@
+================================================================
+
+	switch (do_dialog(type, title == NULL ? (char_u *) _("Question") : title, message, (char_u *) _("&Yes\n&No\n&Cancel"), dflt, NULL)) {
+
+------------------------------------------------
+
+	switch (
+		do_dialog(
+			type,
+			title == NULL ? (char_u *) _("Question") : title,
+			message,
+			(char_u *) _("&Yes\n&No\n&Cancel"),
+			dflt,
+			NULL
+		)
+	) {
+
+==============================================================

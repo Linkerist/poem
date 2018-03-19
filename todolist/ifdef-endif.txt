@@ -1,0 +1,27 @@
+==================================================
+
+/* close current window */
+	case Ctrl_C:
+	case 'c':
+#ifdef FEAT_VISUAL
+		reset_VIsual_and_resel();	/* stop Visual mode */
+#endif
+		do_cmdline_cmd((char_u *) "close");
+		break;
+
+---------------------------------------
+
+/* close current window */
+	case Ctrl_C:
+	case 'c':
+		
+#ifdef FEAT_VISUAL
+		reset_VIsual_and_resel();	/* stop Visual mode */
+#endif
+		
+		do_cmdline_cmd((char_u *) "close");
+		break;
+
+it may do harm to source code.
+
+=====================================================

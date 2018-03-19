@@ -1,0 +1,11 @@
+=====================================================================
+
+               outofmem:
+	vim_free(sub_firstline);	/* may have to free allocated copy of the line */
+
+---------------------------------------------
+
+outofmem:
+	vim_free(sub_firstline);	/* may have to free allocated copy of the line */
+
+=====================================================================

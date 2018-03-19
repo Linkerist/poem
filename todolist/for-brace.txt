@@ -1,0 +1,38 @@
+======================================================
+
+			for (
+				to = line_count_right, from = db_idx + 1; from < line_count_left; ++from, ++to)
+
+--------------------------------------------------
+
+			for (
+				to = line_count_right, from = db_idx + 1;
+				from < line_count_left;
+				++from, ++to
+			)
+
+if the line is too long for you, break the line
+
+========================================================
+
+		for (wp = (tp == curtab)
+		     ? firstwin : tp->tp_firstwin; wp != NULL; wp = wp->w_next) {
+
+-------------------------------------------
+
+		for (wp = (tp == curtab) ? firstwin : tp->tp_firstwin; wp != NULL; wp = wp->w_next) {
+
+do not break the line, if it is not long enough.
+
+========================================================
+
+	for (ptp = first_tabpage; ptp != NULL && ptp != tp; ptp = ptp->tp_next);
+
+-----------------------------------------
+
+	for (ptp = first_tabpage; ptp != NULL && ptp != tp; ptp = ptp->tp_next)
+		;
+
+always break the line after for brace. althoug just for a ';'
+
+=========================================================

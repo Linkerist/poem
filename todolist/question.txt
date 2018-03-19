@@ -1,0 +1,78 @@
+==================================================================
+
+	do_debug(getline_equal(getline, cookie, getsourceline)
+					 ? (char_u *) _("End of sourced file")
+					 : (char_u *) _("End of function"));
+
+-------------------------------------------------
+
+	do_debug(
+			getline_equal(getline, cookie, getsourceline)
+			? (char_u *) _("End of sourced file")
+			: (char_u *) _("End of function")
+		);
+
+=================================================================
+
+		list_append_number(l, (fp != NULL) ? (varnumber_T) (fp->col == MAXCOL ? MAXCOL : fp->col + 1)
+				   : (varnumber_T) 0);
+
+-------------------------------------------------
+
+		list_append_number(
+			l,
+			(fp != NULL)
+			? (varnumber_T) (fp->col == MAXCOL ? MAXCOL : fp->col + 1)
+			: (varnumber_T)0
+		);
+
+==========================================================
+
+	list_append_string(
+	rettv->vval.v_list,
+(char_u *) (
+	attr == HLF_SPB
+	? "bad"
+	: attr == HLF_SPR
+	? "rare"
+	: attr == HLF_SPL
+	? "local"
+	: attr == HLF_SPC
+	? "caps"
+	: "" ), -1
+	);
+
+---------------------------------------------
+
+	list_append_string(
+		rettv->vval.v_list,
+		(char_u *) (
+			attr == HLF_SPB
+			? "bad"
+			: attr == HLF_SPR
+				? "rare"
+				: attr == HLF_SPL
+					? "local"
+					: attr == HLF_SPC
+						? "caps"
+						: ""
+					), -1
+	);
+
+should I use a simple way?
+
+========================================================
+
+		msg_attr(dict_opt ? (char_u *) _("'dictionary' option is empty")
+			 : (char_u *) _("'thesaurus' option is empty"), hl_attr(HLF_E));
+
+-----------------------------------------
+
+		msg_attr(
+			dict_opt
+			? (char_u *) _("'dictionary' option is empty")
+			: (char_u *) _("'thesaurus' option is empty"),
+			hl_attr(HLF_E)
+		);
+
+===========================================================

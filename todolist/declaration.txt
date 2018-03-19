@@ -1,0 +1,32 @@
+===============================================
+
+unsigned int reset,
+		     merge,
+		     update,
+		     index_only,
+		     nontrivial_merge,
+		     trivial_merges_only,
+		     verbose_update,
+		     aggressive,
+		     skip_unmerged,
+		     initial_checkout,
+		     diff_index_cached,
+		     debug_unpack,
+		     skip_sparse_checkout,
+		     gently,
+		     exiting_early,
+		     show_all_errors,
+		     dry_run;
+
+----------------------------
+
+unsigned int
+reset, merge, update, index_only,
+nontrivial_merge, trivial_merges_only, verbose_update, aggressive,
+skip_unmerged, initial_checkout, diff_index_cached, debug_unpack,
+skip_sparse_checkout, gently, exiting_early, show_all_errors,
+dry_run;
+
+shall I do this, well, I has no idea.
+
+===========================================

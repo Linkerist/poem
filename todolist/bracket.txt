@@ -1,0 +1,17 @@
+=============================================
+
+There are lots of bracket, how to handle this?
+
+/* Parsing of arguments, decoding of switches.  */
+static char options[1 + sizeof(switches) / sizeof(switches[0]) * 3];
+
+static struct option long_options[
+	(sizeof(switches) / sizeof(switches[0]))
+	+ (sizeof(long_option_aliases) / sizeof(long_option_aliases[0]))];
+
+static struct option long_options[
+	(sizeof(switches) / sizeof(switches[0]))
+	+ (sizeof(long_option_aliases) / sizeof(long_option_aliases[0]))
+];
+
+=============================================

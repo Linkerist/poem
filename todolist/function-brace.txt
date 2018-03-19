@@ -1,0 +1,179 @@
+===================================================================================
+
+	expand_env_esc(eap->arg, NameBuff, MAXPATHL,
+			       TRUE, TRUE, NULL);
+
+--------------------------------------------------------------
+
+	expand_env_esc(eap->arg, NameBuff, MAXPATHL, TRUE, TRUE, NULL);
+
+=================================================================================
+
+				if (curwin->w_cursor.coladd >= (colnr_T) chartabsize(p,
+										     curwin->
+										     w_virtcol -
+										     curwin->
+										     w_cursor.
+										     coladd)) {
+
+---------------------------------------------------------------
+
+				if (
+					curwin->w_cursor.coladd
+					>= (colnr_T) chartabsize(p, curwin->w_virtcol - curwin->w_cursor.coladd)
+				) {
+
+==============================================================================
+
+			match_add(curwin, get_dict_string(d, (char_u *) "group", FALSE),
+				  get_dict_string(d, (char_u *) "pattern", FALSE),
+				  (int)get_dict_number(d, (char_u *) "priority"),
+				  (int)get_dict_number(d, (char_u *) "id"));
+
+--------------------------------------------------------
+
+			match_add(
+				curwin,
+				get_dict_string(d, (char_u *) "group", FALSE),
+				get_dict_string(d, (char_u *) "pattern", FALSE),
+				(int)get_dict_number(d, (char_u *) "priority"),
+				(int)get_dict_number(d, (char_u *) "id")
+			);
+
+============================================================================
+
+	sb->id = XtVaCreateWidget("scrollBar",
+#ifdef FEAT_GUI_NEXTAW
+				  scrollbarWidgetClass, vimForm,
+#else
+				  vim_scrollbarWidgetClass, vimForm,
+#endif
+				  XtNresizable, True,
+				  XtNtop, XtChainTop,
+				  XtNbottom, XtChainTop,
+				  XtNleft, XtChainLeft,
+				  XtNright, XtChainLeft,
+				  XtNborderWidth, 0,
+				  XtNorientation, (orient == SBAR_VERT) ? XtorientVertical
+				  : XtorientHorizontal,
+				  XtNforeground, gui.scroll_fg_pixel,
+				  XtNbackground, gui.scroll_bg_pixel, NULL);
+
+--------------------------------------------------------
+
+	sb->id = XtVaCreateWidget(
+				 "scrollBar",
+#ifdef FEAT_GUI_NEXTAW
+				 scrollbarWidgetClass,
+				 vimForm,
+#else
+				 vim_scrollbarWidgetClass,
+				 vimForm,
+#endif
+				 XtNresizable,
+				 True,
+				 XtNtop,
+				 XtChainTop,
+				 XtNbottom,
+				 XtChainTop,
+				 XtNleft,
+				 XtChainLeft,
+				 XtNright,
+				 XtChainLeft,
+				 XtNborderWidth,
+				 0,
+				 XtNorientation,
+				 (orient == SBAR_VERT) ? XtorientVertical : XtorientHorizontal,
+				 XtNforeground,
+				 gui.scroll_fg_pixel,
+				 XtNbackground,
+				 gui.scroll_bg_pixel,
+				 NULL
+			 );
+
+lide or ccs should take no consideration of the user's business logic, it will gild the lily, and a nightmare for everyone
+
+====================================================================================
+
+			buf->b_ml.ml_chunksize = (chunksize_T *) vim_realloc( buf->b_ml.ml_chunksize, sizeof(chunksize_T) * buf->b_ml.ml_numchunks);
+
+----------------------------------------------------
+
+			buf->b_ml.ml_chunksize = (chunksize_T *)vim_realloc(
+								buf->b_ml.ml_chunksize,
+								sizeof(chunksize_T) * buf->b_ml.ml_numchunks
+			);
+
+if there is still a long prefix in function calls, such as type convert, break the line in latter period.
+
+=================================================================================
+
+			sprintf((char *)IObuff, "%c %2d %5ld %4d ",
+				i == curwin->w_jumplistidx ? '>' : ' ',
+				i > curwin->w_jumplistidx ? i - curwin->w_jumplistidx
+				: curwin->w_jumplistidx - i,
+				curwin->w_jumplist[i].fmark.mark.lnum,
+				curwin->w_jumplist[i].fmark.mark.col);
+
+-----------------------------------------------------
+
+			sprintf(
+				(char *)IObuff,
+				"%c %2d %5ld %4d ",
+				i == curwin->w_jumplistidx ? '>' : ' ',
+				i > curwin->w_jumplistidx ? i - curwin->w_jumplistidx : curwin->w_jumplistidx - i,
+				curwin->w_jumplist[i].fmark.mark.lnum,
+				curwin->w_jumplist[i].fmark.mark.col
+			);
+
+==================================================================================
+
+	error(
+				"unknown object type %i at offset %"PRIuMAX" in %s", type, (uintmax_t)obj_offset, p->pack_name);
+
+------------------------
+
+	error(
+		"unknown object type %i at offset %"PRIuMAX" in %s",
+		type, (uintmax_t)obj_offset, p->pack_name
+	);
+
+okay, it seem that I think too much for this moment...
+
+==============================================================
+
+output(o, 1, _("CONFLICT (%s): There is a directory with name %s in %s. "
+			       "Adding %s as %s"),
+			       conf, path, other_branch, path, new_path);
+
+------------------------------------------
+
+I do not know how to handle it...
+
+====================================================
+
+	return driver->fn(driver, result_buf, path, ancestor, ancestor_label, ours, our_label, theirs, their_label, opts, marker_size);
+
+----------------------------------
+
+	return driver->fn(
+		driver, result_buf, path,
+		ancestor, ancestor_label, ours,
+		our_label, theirs, their_label,
+		opts, marker_size
+	);
+
+============================================
+
+	handle_the_token( type_code, &scase, &force_nl, &sp_sw, &flushed_nl, &hd_type, &dec_ind, &last_token_ends_sp, &file_exit_value, can_break, &last_else, is_procname_definition, pbreak_line);
+
+------------------------------
+
+	handle_the_token(
+		type_code, &scase, &force_nl, &sp_sw, &flushed_nl, &hd_type, &dec_ind,
+		&last_token_ends_sp, &file_exit_value, can_break, &last_else, is_procname_definition, pbreak_line
+	);
+
+well, how to handle this?
+
+============================================

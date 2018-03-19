@@ -1,0 +1,481 @@
+============================================================================
+
+	if ((getline_equal(getline, cookie, getsourceline)
+				 || getline_equal(getline, cookie, get_func_line)
+				)
+			    && ex_nesting_level + 1 <= debug_break_level)
+
+---------------------------------------------------------
+
+	if (
+		(
+			getline_equal(getline, cookie, getsourceline)
+			|| getline_equal(getline, cookie, get_func_line)
+		)
+		&& ex_nesting_level + 1 <= debug_break_level
+	)
+
+============================================================================
+
+	if (*p == '!' && ea.cmdidx != CMD_substitute
+	    && ea.cmdidx != CMD_smagic && ea.cmdidx != CMD_snomagic) {
+
+-----------------------------------------------------------
+
+	if (
+		*p == '!'
+		&& ea.cmdidx != CMD_substitute
+		&& ea.cmdidx != CMD_smagic
+		&& ea.cmdidx != CMD_snomagic
+	) {
+
+============================================================================
+
+	} else if (p[0] == 's'
+		   && ((p[1] == 'c' && p[2] != 's' && p[2] != 'r' && p[3] != 'i' && p[4] != 'p')
+		       || p[1] == 'g' || (p[1] == 'i' && p[2] != 'm' && p[2] != 'l' && p[2] != 'g')
+		       || p[1] == 'I' || (p[1] == 'r' && p[2] != 'e')
+		   )
+	    ) {
+
+-------------------------------------------------------------
+
+	} else if (
+		p[0] == 's'
+		&& (
+			(
+				p[1] == 'c'
+				&& p[2] != 's'
+				&& p[2] != 'r'
+				&& p[3] != 'i'
+				&& p[4] != 'p'
+			)
+			|| p[1] == 'g'
+			|| (
+				p[1] == 'i'
+				&& p[2] != 'm'
+				&& p[2] != 'l'
+				&& p[2] != 'g'
+			)
+			|| p[1] == 'I'
+			|| (
+				p[1] == 'r'
+				&& p[2] != 'e'
+			)
+		)
+	) {
+
+compiler level problem, I should not consider too much about this for this moment.
+
+===================================================================================
+
+	if (eap->line1 < 0 || eap->line2 < 0 || eap->line1 > eap->line2 || ((eap->argt & RANGE)
+									    && !(eap->argt & NOTADR)
+									    && eap->line2 >
+									    curbuf->b_ml.
+									    ml_line_count
+#ifdef FEAT_DIFF
+									    + (eap->cmdidx ==
+									       CMD_diffget)
+#endif
+	    )
+	    )
+		return (char_u *) _(e_invrange);
+
+------------------------------------------------------------------------
+
+	if (
+		eap->line1 < 0
+		|| eap->line2 < 0
+		|| eap->line1 > eap->line2
+		|| (
+			(eap->argt & RANGE)
+			&& !(eap->argt & NOTADR)
+			&& eap->line2 > curbuf->b_ml.ml_line_count
+#ifdef FEAT_DIFF
+				+ (eap->cmdidx == CMD_diffget)
+#endif
+		)
+	)
+		return (char_u *) _(e_invrange);
+
+pre-compile code like 'ifdef' will disturb me.
+
+=============================================================================
+
+	if (!check_changed(curbuf, p_awa, TRUE, eap->forceit, FALSE)
+	    && (*eap->arg == NUL || setfname(curbuf, eap->arg, NULL, TRUE) == OK))
+
+----------------------------------------------------
+
+	if (
+		!check_changed(curbuf, p_awa, TRUE, eap->forceit, FALSE)
+		&& (*eap->arg == NUL || setfname(curbuf, eap->arg, NULL, TRUE) == OK)
+	)
+
+the line is not long enough, should not break it.
+
+================================================================
+
+		if (win->w_arg_idx != WARGCOUNT(win) - 1 && arg_had_last == FALSE
+#ifdef FEAT_WINDOWS
+		    && ALIST(win) == &global_alist
+#endif
+		    && GARGCOUNT > 0
+		    && win->w_arg_idx < GARGCOUNT
+		    && (win->w_buffer->b_fnum == GARGLIST[GARGCOUNT - 1].ae_fnum
+			|| (win->w_buffer->b_ffname != NULL
+			    && (fullpathcmp(alist_name(&GARGLIST[GARGCOUNT - 1]),
+					    win->w_buffer->b_ffname, TRUE) & FPC_SAME)
+			)
+		    )
+		    )
+
+-----------------------------------------
+
+		if (
+			win->w_arg_idx != WARGCOUNT(win) - 1
+			&& arg_had_last == FALSE
+#ifdef FEAT_WINDOWS
+			&& ALIST(win) == &global_alist
+#endif
+			&& GARGCOUNT > 0
+			&& win->w_arg_idx < GARGCOUNT
+			&& (
+				win->w_buffer->b_fnum == GARGLIST[GARGCOUNT - 1].ae_fnum
+				|| (
+					win->w_buffer->b_ffname != NULL
+					&& (
+						fullpathcmp(
+							alist_name(&GARGLIST[GARGCOUNT - 1]),
+							win->w_buffer->b_ffname, TRUE
+						)
+						& FPC_SAME
+					)
+				)
+			)
+		)
+
+the '&' should break a line as well as '&&', in case of a too long line.
+
+=====================================================================
+
+	if (((!other_file && !(flags & ECMD_OLDBUF))
+	     || (curbuf->b_nwindows == 1 && !(flags & (ECMD_HIDE | ECMD_ADDBUF))))
+	    && check_changed(curbuf, p_awa, !other_file, (flags & ECMD_FORCEIT), FALSE))
+
+------------------------------------------------------
+
+	if (
+		(
+			(!other_file && !(flags & ECMD_OLDBUF))
+			|| (
+				curbuf->b_nwindows == 1
+				&& !(flags & (ECMD_HIDE | ECMD_ADDBUF))
+			)
+		)
+		&& check_changed(curbuf, p_awa, !other_file, (flags & ECMD_FORCEIT), FALSE)
+	) {
+
+=====================================================================
+
+				if (*s < ' ' || (*s == '^' && s[1] && (ASCII_ISALPHA(s[1])
+								       || vim_strchr((char_u *)
+										     "?@[\\]^",
+										     s[1]) !=
+								       NULL))) {
+
+---------------------------------------------------
+
+				if (
+					*s < ' '
+					|| (
+						*s == '^'
+						&& s[1]
+						&& (
+							ASCII_ISALPHA(s[1])
+							|| vim_strchr((char_u *)"?@[\\]^", s[1]) != NULL
+						)
+					)
+				) {
+
+======================================================================
+
+	while (*p == '[' || (*p == '.' && lp->ll_tv->v_type == VAR_DICT)) {
+		if (!(lp->ll_tv->v_type == VAR_LIST && lp->ll_tv->vval.v_list != NULL)
+		    && !(lp->ll_tv->v_type == VAR_DICT && lp->ll_tv->vval.v_dict != NULL)) {
+
+----------------------------------------------------
+
+	while (
+		*p == '['
+		|| (
+			*p == '.'
+			&& lp->ll_tv->v_type == VAR_DICT
+		)
+	) {
+		if (
+			!(lp->ll_tv->v_type == VAR_LIST && lp->ll_tv->vval.v_list != NULL)
+			&& !(lp->ll_tv->v_type == VAR_DICT && lp->ll_tv->vval.v_dict != NULL)
+		) {
+
+===================================================================
+
+		if (n == K_LEFTMOUSE
+		    || n == K_LEFTMOUSE_NM
+		    || n == K_LEFTDRAG
+		    || n == K_LEFTRELEASE
+		    || n == K_LEFTRELEASE_NM
+		    || n == K_MIDDLEMOUSE
+		    || n == K_MIDDLEDRAG
+		    || n == K_MIDDLERELEASE
+		    || n == K_RIGHTMOUSE
+		    || n == K_RIGHTDRAG
+		    || n == K_RIGHTRELEASE
+		    || n == K_X1MOUSE
+		    || n == K_X1DRAG
+		    || n == K_X1RELEASE
+		    || n == K_X2MOUSE
+		    || n == K_X2DRAG || n == K_X2RELEASE || n == K_MOUSEDOWN || n == K_MOUSEUP) {
+
+---------------------------------------------------
+
+		if (
+			n == K_LEFTMOUSE
+			|| n == K_LEFTMOUSE_NM
+			|| n == K_LEFTDRAG
+			|| n == K_LEFTRELEASE
+			|| n == K_LEFTRELEASE_NM
+			|| n == K_MIDDLEMOUSE
+			|| n == K_MIDDLEDRAG
+			|| n == K_MIDDLERELEASE
+			|| n == K_RIGHTMOUSE
+			|| n == K_RIGHTDRAG
+			|| n == K_RIGHTRELEASE
+			|| n == K_X1MOUSE
+			|| n == K_X1DRAG
+			|| n == K_X1RELEASE
+			|| n == K_X2MOUSE
+			|| n == K_X2DRAG
+			|| n == K_X2RELEASE
+			|| n == K_MOUSEDOWN
+			|| n == K_MOUSEUP
+		) {
+=================================================================
+
+			if (!(dict_find(d, (char_u *) "group", -1) != NULL
+			      && dict_find(d, (char_u *) "pattern", -1) != NULL
+			      && dict_find(d, (char_u *) "priority", -1) != NULL
+			      && dict_find(d, (char_u *) "id", -1) != NULL)) {
+
+-----------------------------------------
+
+			if (
+				!(
+					dict_find(d, (char_u *) "group", -1) != NULL
+					&& dict_find(d, (char_u *) "pattern", -1) != NULL
+					&& dict_find(d, (char_u *) "priority", -1) != NULL
+					&& dict_find(d, (char_u *) "id", -1) != NULL
+				)
+			) {
+
+================================================================
+
+			if (arg[0] == '<' && arg[1] == '<'
+			    && ((p[0] == 'p' && p[1] == 'y'
+				 && (!ASCII_ISALPHA(p[2]) || p[2] == 't'))
+				|| (p[0] == 'p' && p[1] == 'e'
+				    && (!ASCII_ISALPHA(p[2]) || p[2] == 'r'))
+				|| (p[0] == 't' && p[1] == 'c'
+				    && (!ASCII_ISALPHA(p[2]) || p[2] == 'l'))
+				|| (p[0] == 'r' && p[1] == 'u' && p[2] == 'b'
+				    && (!ASCII_ISALPHA(p[3]) || p[3] == 'y'))
+				|| (p[0] == 'm' && p[1] == 'z'
+				    && (!ASCII_ISALPHA(p[2]) || p[2] == 's'))
+			    )) {
+
+------------------------------------------
+
+			if (
+				arg[0] == '<'
+				&& arg[1] == '<'
+				&& (
+					(
+						p[0] == 'p'
+						&& p[1] == 'y'
+						&& (!ASCII_ISALPHA(p[2]) || p[2] == 't')
+					)
+					|| (
+						p[0] == 'p'
+						&& p[1] == 'e'
+						&& (!ASCII_ISALPHA(p[2]) || p[2] == 'r')
+					)
+					|| (
+						p[0] == 't'
+						&& p[1] == 'c'
+						&& (!ASCII_ISALPHA(p[2]) || p[2] == 'l')
+					)
+					|| (
+						p[0] == 'r'
+						&& p[1] == 'u'
+						&& p[2] == 'b'
+						&& (!ASCII_ISALPHA(p[3]) || p[3] == 'y')
+					)
+					|| (
+						p[0] == 'm'
+						&& p[1] == 'z'
+						&& (!ASCII_ISALPHA(p[2]) || p[2] == 's')
+					)
+				)
+			) {
+
+code should be graceful like this, it is work of art.
+
+==============================================================================
+
+			if (win_split(curwin->w_height - (curwin->w_height - todo * STATUS_HEIGHT) / (todo + 1) - STATUS_HEIGHT, WSP_ABOVE) == FAIL)
+
+-----------------------------------------------------------
+
+			if (
+				win_split(
+					curwin->w_height - (curwin->w_height - todo * STATUS_HEIGHT) / (todo + 1) - STATUS_HEIGHT,
+					WSP_ABOVE
+				) == FAIL
+			)
+
+too long line for function braces which in if brace.
+
+============================================================================
+
+				if ((curbuf->b_u_newhead->uh_getbot_entry != uep
+				     ? (uep->ue_top + uep->ue_size + 1
+					!= (uep->ue_bot == 0
+					    ? curbuf->b_ml.ml_line_count + 1 : uep->ue_bot))
+				     : uep->ue_lcount != curbuf->b_ml.ml_line_count)
+				    || (uep->ue_size > 1
+					&& top >= uep->ue_top
+					&& top + 2 <= uep->ue_top + uep->ue_size + 1))
+
+---------------------------------------------------
+
+				if (
+					(
+						curbuf->b_u_newhead->uh_getbot_entry != uep
+						? (
+							uep->ue_top + uep->ue_size + 1
+							!= (
+								uep->ue_bot == 0
+								? curbuf->b_ml.ml_line_count + 1
+								: uep->ue_bot
+							)
+						)
+						: uep->ue_lcount != curbuf->b_ml.ml_line_count
+					)
+					|| (
+						uep->ue_size > 1
+						&& top >= uep->ue_top
+						&& top + 2 <= uep->ue_top + uep->ue_size + 1
+					)
+				)
+
+there are lots of internal braced brace in if - brace, be care for too long line
+
+=======================================================================
+
+	if (git_config_set_in_file(file_name.buf, "core.worktree", relative_path(real_work_tree, git_dir, &rel_path)))
+
+-----------------------------------
+
+	if (
+		git_config_set_in_file(
+			file_name.buf,
+			"core.worktree",
+			relative_path(real_work_tree, git_dir, &rel_path)
+		)
+	)
+
+function brace in function brace
+
+================================================================
+
+	if (len ? (!strncmp(name, remotes[i]->name, len) && !remotes[i]->name[len]) : !strcmp(name, remotes[i]->name))
+
+---------------------------------------
+
+	if (
+		len
+		? (!strncmp(name, remotes[i]->name, len) && !remotes[i]->name[len])
+		: !strcmp(name, remotes[i]->name)
+	)
+
+============================================================
+
+	if ((ipFlag->Force == 0) && (TempChar < 32) && (TempChar != '\x0a') &&	/* Not an LF */
+				    (TempChar != '\x0d') &&	/* Not a CR */
+				    (TempChar != '\x09') &&	/* Not a TAB */
+				    (TempChar != '\x0c')) {	/* Not a form feed */
+
+-----------------------------
+
+	if (
+		/* Not an LF */
+		(ipFlag->Force == 0) && (TempChar < 32) && (TempChar != '\x0a')
+		/* Not a CR */
+		&& (TempChar != '\x0d')
+		/* Not a TAB */
+		&& (TempChar != '\x09')
+		/* Not a form feed */
+		&& (TempChar != '\x0c')
+	) {
+
+how to handle this? Is it graceful?
+
+==================================================
+
+				if (
+					(step < 0 ? uhp->uh_seq <= curbuf->b_u_seq_cur : uhp->uh_seq > curbuf->b_u_seq_cur)
+					&& (
+						(dosec && val == closest)
+						? (step < 0 ? uhp->uh_seq < closest_seq : uhp->uh_seq > closest_seq)
+						: closest == closest_start
+							|| (
+								val > target ? (closest > target
+					       ? val - target <= closest - target
+					       : val - target <= target - closest)
+					    : (closest > target
+					       ? target - val <= closest - target
+					       : target - val <= target - closest)))) {
+
+------------------------------------------
+
+				if (
+					(step < 0 ? uhp->uh_seq <= curbuf->b_u_seq_cur : uhp->uh_seq > curbuf->b_u_seq_cur)
+					&& (
+						(dosec && val == closest)
+						? (step < 0 ? uhp->uh_seq < closest_seq : uhp->uh_seq > closest_seq)
+						: closest == closest_start
+							|| (
+								val > target
+								? (closest > target ? val - target <= closest - target : val - target <= target - closest)
+								: (closest > target ? target - val <= closest - target : target - val <= target - closest)
+							)
+					)
+				) {
+
+collabrate with several conditional branch
+
+==============================================
+
+	if (global_busy		/* no messages now, wait until global is finished */
+	    || !messaging()) {	/* 'lazyredraw' set, don't do messages now */
+
+------------------------------
+
+	/* no messages now, wait until global is finished */
+	/* 'lazyredraw' set, don't do messages now */
+	if (global_busy || !messaging())
+
+deadly shortcoming here, the comment for every condition element is not clearly
+
+======================================
