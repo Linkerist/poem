@@ -34,7 +34,7 @@ help:
 -include config-option.table
 
 profile:
-	echo $(obj-y) > .poem.pro
+	@echo $(obj-y) > .poem.pro
 
 .PNONY: clean
 clean:

@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+a.out
+.poem.pro
+poem.pro
+.config
+.config.old
+tags
+poem
+poem.o
